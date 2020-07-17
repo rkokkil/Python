@@ -14,16 +14,16 @@ docker images
 Start a container
 
 ```
-docker run -d -p 6000:5000 companies_crud
+docker run -d -p 5000:5000 companies_crud
 ```
 
-5000 is application's port inside a docker container. 6000 is application's port inside host machine (on which docker container started) and is mapped with 5000. 
-Whatever traffic (web calls) reaches port 6000 are redirected to 5000.
+Right 5000 is application's port inside a docker container. Left 5000 is application's port inside host machine (on which docker container started) and is mapped with docker's port. 
+Whatever traffic (web calls) reaches port 5000 inside host are redirected to 5000 inside docker.
 
 Invoke URL if application is running
 
 ```
-http://localhost:6000/companies
+http://localhost:5000/companies
 ```
 
 ==As Flask doesn't work in Production mode, I made code to work in debug mode.==
