@@ -14,7 +14,7 @@ docker images
 Start a container
 
 ```
-docker run -p 6000:5000 companies_crud
+docker run -d -p 6000:5000 companies_crud
 ```
 
 5000 is application's port inside a docker container. 6000 is application's port inside host machine (on which docker container started) and is mapped with 5000. 
@@ -26,5 +26,9 @@ Invoke URL if application is running
 http://localhost:6000/companies
 ```
 
+==As Flask doesn't work in Production mode, I made code to work in debug mode.==
+```
+api.run(host="0.0.0.0", port=int("5000"), debug=True)
+```
 
 
