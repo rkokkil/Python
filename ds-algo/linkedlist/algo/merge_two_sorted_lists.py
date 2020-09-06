@@ -7,6 +7,17 @@ https://leetcode.com/problems/merge-k-sorted-lists/
 https://leetcode.com/problems/merge-sorted-array/
 https://leetcode.com/problems/sort-list/
 
+O(1) - hashing technique
+O(n) - linear
+O(n log n)
+O(n^2)
+
+time complexity O(n), space complexity O(n)
+time complexity O(nlogn), space complexity O(1)
+
+if input size is max, you are over utilizing space in first scenario hence prefer second option
+if input size is less, then i prefer first.
+
 """
 
 
