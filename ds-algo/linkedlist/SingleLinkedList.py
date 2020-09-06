@@ -91,17 +91,84 @@ class LinkedList:
 
             currentNode.next = newNode
 
+    """
+    0  1  2  3  4
+    1->2->3->4->5->null
+    position = 2
+    node = 10
+    result
+    1->2->10->3->4->5->null
+    """
     def insertAtPosition(self, node, position):
-        pass
+        if self.head is None:
+            return
 
+        currentNode = self.head
+        counter = 0
+        prevNode = self.head
+        while currentNode.next is not None:
+            if counter == position:
+                node.next = currentNode
+                prevNode.next = node
+                del currentNode
+                break
+
+            prevNode = currentNode
+            currentNode = currentNode.next
+            counter += 1
+
+    """
+    head 
+    1->2->3->null
+    after 
+    2->3->null
+    """
     def deleteHead(self):
-        pass
+        if self.head is None:
+            return
+        currentNode = self.head
+        currentNext = currentNode.next
+        self.head = currentNext
+        del currentNode
 
+    """
+    1->2->3->4->5->null
+    """
     def deleteAtEnd(self):
-        pass
+        if self.head is None:
+            return
 
+        currentNode = self.head
+        while currentNode.next.next is not None:
+            currentNode = currentNode.next
+
+        currentNode.next = None
+
+    """
+    position = 2
+    0  1  2  3  4
+    1->2->3->4->5->null
+    currentNode = 3
+    prevNode = 2
+    
+    
+    """
     def deleteAtPosition(self, position):
-        pass
+        if self.head is None:
+            return
+
+        currentNode = self.head
+        counter = 0
+        prevNode = self.head
+        while currentNode.next is not None:
+            if counter == position:
+                prevNode.next = currentNode.next
+                del currentNode
+                break
+
+            prevNode = currentNode
+            currentNode = currentNode.next
+            counter += 1
 
 # Client program or Driver Program
 
@@ -122,9 +189,22 @@ list.insertAtHead(fourthNode)
 
 # list.printList()
 # print(list.listSize())
-list.search("")
-list.search("Hi")
-list.search("Mr")
+# list.search("")
+# list.search("Hi")
+# list.search("Mr")
+
+list.printList()
+# list.deleteHead()
+# list.deleteHead()
+# list.deleteHead()
+# list.deleteHead()
+# list.deleteHead()
+# list.deleteAtEnd()
+# list.deleteAtPosition(2)
+fifthNode = Node("Hello")
+list.insertAtPosition(fifthNode, 2)
+print()
+list.printList()
 
 """
 if __name__ == '__main__':
